@@ -65,7 +65,52 @@ insert into employee (id, name, email, birthday) values (49, 'Bryanty', 'bstephe
 insert into employee (id, name, email, birthday) values (50, 'Willyt', 'wstrodder1d@eventbrite.com', '1983-06-22');
 
 ----3. SORU----
+UPDATE employee
+SET name='TEST-NAME'
+WHERE id=10 
+RETURNING *;
 
+UPDATE employee
+SET name='UPDATE-MULTIPLE',
+    email= 'test@test-update.info'
+WHERE id>30
+RETURNING *;
+
+UPDATE employee
+SET name='DOWNDATE-MULTIPLE'
+WHERE name='UPDATE-MULTIPLE'
+RETURNING *;
+
+UPDATE employee
+SET birthday='1980-01-01',
+	name = 'Overage'
+WHERE email ILIKE 'TEST@%'
+RETURNING *;
+
+UPDATE employee
+SET birthday='1981-01-01',
+	name = 'UPDATED-AGAIN',
+	email= 'updatedby@x.com'
+WHERE email ILIKE '%ST@%'
+RETURNING *;
 
 ----4. SORU----
+DELETE FROM employee 
+WHERE name ILIKE 'UPDA%'
+RETURNING *;
 
+DELETE FROM employee 
+WHERE name ='TEST-NAME'
+RETURNING *;
+
+DELETE FROM employee 
+WHERE birthday = '2022-11-03'
+RETURNING *;
+
+DELETe FROM employee
+WHERE email ILIKE 'ehazel%'
+RETURNING *;
+
+DELETE FROM employee
+WHERE id>10 AND id<20
+RETURNING *;
