@@ -5,7 +5,13 @@ PostgreSQLExample for Patika.dev
 3- customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz FULL JOIN sorgusunu yazınız.
 
 ----1. SORU----
+SELECT city, country FROM city
+LEFT JOIN country ON city_id = country.id;
 
 ----2. SORU----
+SELECT payment_id, first_name, last_name FROM payment
+RIGHT JOIN customer ON payment_id = customer_id;
 
 ----3. SORU----
+SELECT rental_id, first_name, last_name FROM rental
+FULL JOIN customer ON rental_id = customer_id;
