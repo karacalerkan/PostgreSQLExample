@@ -39,5 +39,3 @@ WHERE payment.amount =
 (
     SELECT MAX(amount) FROM payment
 );
-
-
